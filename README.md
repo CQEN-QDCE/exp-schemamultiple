@@ -87,7 +87,7 @@ Pour plus de détails sur le déploiement d’un registre distribué indy VON Ne
 
 ### Déploiement des Agents ACA-PY 
 
-Accéder à une ligne de commande Bash et cloner le référentiel ACA-PY. La version d’ACA-PY utilisée pour cette preuve de concept est v0.7.4-rc2 .
+Accéder à une ligne de commande Bash et cloner le référentiel ACA-PY. La version d’ACA-PY utilisée pour cette preuve de concept est `v0.7.4-rc2`.
 
 ```sh
 git clone https://github.com/hyperledger/aries-cloudagent-python.git
@@ -118,7 +118,7 @@ cd aries-cloudagent-python/demo
 ./run_demo Acme
 ```
 
-Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
+> Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
 
 Par défaut, les agents Faber et Acme ont créé une invitation de connexion (voir le terminal respectif de chaque agent). Vous pouvez utiliser l’interface CLI ou Swagger (API: POST /out-of-band/receive-invitation) d’Alice pour accepter les invitations de Faber et Acme. 
 
@@ -137,9 +137,289 @@ Si tout s’est déroulé sans problème vous devrez avoir accès aux interfaces
 
 ## 4.0 Démarche
 
+1. Déployer le registre distribué von-network
+2. Déployer les 3 agents ACA-PY (Faber, Acme et Alice).
+3. L'émetteur (Faber) enregistre des schémas et les respectives “credential definitions” dans le registre von-network. Pour plus de détails sur les schémas voir la section 5.0 Schémas et attestations.
+4. Établir une connexion a été établie entre l'émetteur (Faber) et le détenteur(Alice). 
+5. Établir une connexion a été établie entre le consommateur(Acme) et le détenteur (Alice). 
+6. L'émetteur (Faber) émets des attestations à Alice , et Alice les a accepté. Pour plus de détails sur les schémas voir la section 5.0 Schémas et attestations
+7. Le consommateur (Acme) envoie des requêtes de présentation au détenteur (Alice)
+
 ## 5.0 Schémas et attestations
 
+### Schémas
+
+Les schémas suivants sont inscrits par Faber dans le registre local  VON Network via Swagger
+
+```json 
+Swagger:
+API: POST /schemas
+```
+#### Schéma 1 : 
+```json 
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint",
+    "parent_1_full_name",
+    "parent_2_full_name",
+    "photo",
+    "issuing_jurisdiction"
+  ],
+  "schema_name": "schema_1",
+  "schema_version": "1.0"
+}
+```
+#### Schéma 2 : 
+```json 
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint",
+    "photo",
+    "full_adress"
+  ],
+  "schema_name": "schema_2",
+  "schema_version": "1.0"
+}
+```
+#### Schéma 3 : 
+```json 
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint"
+  ],
+  "schema_name": "schema_3",
+  "schema_version": "1.0"
+}
+```
+#### Schéma 4 : 
+```json 
+{
+  "attributes": [
+    "full_adress"
+  ],
+  "schema_name": "schema_adress",
+  "schema_version": "1.0"
+}
+```
+
+#### Schéma 5 : 
+```json 
+{
+  "attributes": [
+    "full_adress",
+    "adress_type"
+  ],
+  "schema_name": "schema_adress_2",
+  "schema_version": "1.0"
+}
+```
+> :blue_book: Dans le Schéma 5, le champ adress_type sera rempli avec l’information « R » (résidentielle) ou avec l’information « C » (correspondance).
+
+#### Attestations
+Faber émets 5 attestations à Alice:
+
+- 1 attestation associée au Schéma 1;
+- 1 attestation associée au Schéma 2;
+- 1 attestation associée au Schéma 4 ;
+- 2 attestations associées au Schéma 5.
+
+> :grey_exclamation: Il n’y a pas d’attestation associée au Schéma 3 dans le portefeuille d’Alice. 
+
+Les attestation suivants sont émises par Faber à Alice via l’interface Swagger. 
+
+```sh
+Swagger:
+API:POST /issue-credential-2.0/send
+```
+> :information_source: Lorsque vous allez utiliser les exemples d’attestions ici-bas, n’oubliez pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
+
+1. Attestation liée au Schéma 1
+```json 
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },
+         {
+            "name":"parent_1_full_name",
+            "value":"Jhon"
+         },
+         {
+            "name":"parent_2_full_name",
+            "value":"Alexandra"
+         },
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"issuing_jurisdiction",
+            "value":"1659381214"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+      }
+   },
+   "trace":false
+}
+```
+
+2. Attestation liée au Schéma 2
+```json 
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },         
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+      }
+   },
+   "trace":false
+}
+```
+
+3. Attestation liée au Schéma 4
+```json 
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+      }
+   },
+   "trace":false
+}
+```
+
+4. Attestation liée au Schéma 5 (1)
+```json 
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         },
+		 {
+            "name":"adress_type",
+            "value":"R"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2"
+      }
+   },
+   "trace":false
+}
+```
+
+5. Attestation liée au Schéma 5 (2)
+```json 
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"full_adress",
+            "value":"200 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         },
+		 {
+            "name":"adress_type",
+            "value":"C"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2"
+      }
+   },
+   "trace":false
+}
+```
+
 ## 6.0 Requêtes de présentation
+
+Dans cette section on affiche les requêtes de présentation ayant un statut de réussi. C’est-à-dire que tant l’agent émetteur de la requête (Acme) comme l’agent destinataire de la requête (Alice) ont accepté le format et la syntaxe utilisés pour la constructions des la requêtes.
+
+> :information_source: Les requêtes de présentation suivantes ont été testées sur la base du protocole [Aries RFC 0454: Present Proof Protocol 2.0](https://github.com/hyperledger/aries-rfcs/tree/eace815c3e8598d4a8dd7881d8c731fdb2bcc0aa/features/0454-present-proof-v2)
+
+Les requêtes de présentation sont envoyés par l’agent Acme à l’agent Alice via Swagger.
+
+```sh
+Swagger:
+API: POST /present-proof-2.0/send-request
+```
+> :information_source: Lorsque vous allez utiliser les requêtes de présentation ici-bas, n’oublie pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
 
 ## 7.0 Résultats attendus
 
@@ -155,3 +435,5 @@ Si tout s’est déroulé sans problème vous devrez avoir accès aux interfaces
 
 ## 12.0 Licence
 Distribué sous Licence Libre du Québec – Réciprocité (LiLiQ-R). Voir [LICENCE](LICENSE) pour plus d'informations.
+
+
