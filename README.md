@@ -12,19 +12,23 @@
 
    1. [Conditions initiales et prémisses](#31-conditions-initiales-et-prémisses)
 
-   2. [Médias standard disponibles](#32-médias-standard-disponibles)
-
 4. [Démarche](#40-démarche)
 
-5. [Attestation d\'identité numérique](#50-le-contenu-de-lattestation)
+5. [Schémas et attestations](#50-schémas-et-attestations)
 
-6. [Résultats attendus](#60-résultats-attendus)
+6. [Requêtes de présentation](#60-requêtes-de-présentation)
 
-7. [Analyse](#70-analyse)
+7. [Résultats attendus](#70-résultats-attendus)
 
-8. [Conclusion](#80-conclusion)
+8. [Analyse](#80-analyse)
 
-9. [Licence](#90-licence)
+9. [Conclusion](#90-conclusion)
+
+10. [Détails techniques à considérer](#100-détails-techniques-à-considérer)
+
+11. [Références](#110-références)
+
+12. [Licence](#120-licence)
 
 ---
 
@@ -57,3 +61,97 @@ Nous prenons ici comme hypothèse que si chaque province définit son propre sch
 ### Facultatifs
 * [VSCode](https://code.visualstudio.com)
 
+### Déploiement
+
+Pour la réalisation de cette POC, on a utilisé des instances docker locales d'un registre distribué Indy VON Network et 3 instances de l’agent ACA-PY. Pour l’interaction entre les agents ACA-PY, on a utilisé les interfaces CLI et Swagger de chaque agent.
+
+Il est très recommandable d’avoir suivi la formation [Becoming a Hyperledger Aries Developer](https://www.edx.org/course/becoming-a-hyperledger-aries-developer) préalablement afin d’arriver rapidement à déployer l’infrastructure nécessaire pour cette POC.
+
+### Déploiement VON Network
+
+Accéder à une ligne de commande Bash et cloner le référentiel von-network:
+
+```sh
+git clone https://github.com/bcgov/von-network
+cd von-network
+```
+
+Une fois le dépôt de code cloné , exécuter les commandes suivantes pour déployer les instances docker (4 nœuds et un serveur web):
+
+```sh
+./manage build
+./manage start 
+```
+Vous pouvez accéder à l’interface web du registre en allant sur http://localhost:9000.
+Pour plus de détails sur le déploiement d’un registre distribué indy VON Network cliquer [ici](https://github.com/cloudcompass/ToIPLabs/blob/main/docs/LFS173xV2/vonNetwork.md).
+
+### Déploiement des Agents ACA-PY 
+
+Accéder à une ligne de commande Bash et cloner le référentiel ACA-PY. La version d’ACA-PY utilisée pour cette preuve de concept est v0.7.4-rc2 .
+
+```sh
+git clone https://github.com/hyperledger/aries-cloudagent-python.git
+```
+Pour cette POC, on va déployer les 3 agents Demo (Faber, Alice et Acme) disponibles dans le [dépôt de code GitHub de l’agent ACA-PY](https://github.com/hyperledger/aries-cloudagent-python):
+
+1. **Faber** en tant qu'émetteur des schémas et des attestations.
+2. **Alice** en tant que détenteur des attestations.
+3. **Acme** en tant que consommateur des attestations.
+
+Il est recommandé d’ouvrir un terminal pour chaque agent (instance docker) à déployer afin d’avoir accès aux interfaces CLI offertes par chaque agent. 
+
+Terminal 1:
+```sh
+cd aries-cloudagent-python/demo
+./run_demo Faber
+```
+
+Terminal 2:
+```sh
+cd aries-cloudagent-python/demo
+./run_demo Alice
+```
+
+Terminal 3:
+```sh
+cd aries-cloudagent-python/demo
+./run_demo Acme
+```
+
+Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
+
+Par défaut, les agents Faber et Acme ont créé une invitation de connexion (voir le terminal respectif de chaque agent). Vous pouvez utiliser l’interface CLI ou Swagger (API: POST /out-of-band/receive-invitation) d’Alice pour accepter les invitations de Faber et Acme. 
+
+Si tout s’est déroulé sans problème vous devrez avoir accès aux interfaces Swagger de chaque agent:
+
+* Faber : http://localhost:8021/api/doc
+* Alice :  http://localhost:8031/api/doc
+* Acme : http://localhost:8041/api/doc
+
+### 3.1 Conditions initiales et prémisses
+
+- Un registre distribué von-network est en place.
+- Un émetteur (Faber), consommateur (Acme) et détenteur(Alice) des attestions est en place.
+- Une connexion entre l’agent émetteur (Faber) et le détenteur (Alice) a été établie.
+- Une connexion entre l’agent consommateur (Acme) et le détenteur (Alice) a été établie.
+
+## 4.0 Démarche
+
+## 5.0 Schémas et attestations
+
+## 6.0 Requêtes de présentation
+
+## 7.0 Résultats attendus
+
+## 8.0 Analyse
+
+## 9.0 Conclusion
+
+## 10.0 Détails techniques à considérer
+
+## 11.0 Références 
+
+[Becoming a Hyperledger Aries Developer - Part 7: Present Proof | Laurence de Jong](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-7-present-proof/)
+
+## 12.0 Licence
+Distribué sous Licence Libre du Québec – Réciprocité (LiLiQ-R). Voir [LICENCE](LICENSE) pour plus d'informations.
