@@ -518,7 +518,7 @@ API: POST /present-proof-2.0/send-request
 - Pour l’attribut parent_1_full_name, 1 attestation a été trouvée dans le portefeuille d’Alice, schema_1.
 
 
-Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
+#### Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
 
 ```json
 {
@@ -547,7 +547,7 @@ Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
 - Aucune attestation trouvée dans le portefeuille d’Alice.
 
 
-Requête 4 : Des attributs individuels dans 2 attestations
+#### Requête 4 : Des attributs individuels dans 2 attestations
 
 ```json
 {
@@ -595,7 +595,7 @@ Requête 4 : Des attributs individuels dans 2 attestations
 
 
 
-Requête 5 : Des attributs regroupés dans un ensemble de 3 attestations
+#### Requête 5 : Des attributs regroupés dans un ensemble de 3 attestations
 
 ```json
 {
@@ -636,7 +636,7 @@ Requête 5 : Des attributs regroupés dans un ensemble de 3 attestations
 - Pour le regroupement d’attributs , deux attestations trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
 
 
-Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
+#### Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
 
 ```json
 {
@@ -679,7 +679,7 @@ Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
 - Pour le regroupement d’attributs attr_1, une seule attestation trouvée dans le portefeuille d’Alice, schema_1. 
 
 
-Requête 7.a :  Deux regroupements d’attributs dans deux attestations différentes
+#### Requête 7.a :  Deux regroupements d’attributs dans deux attestations différentes
 
 ```json
 {
@@ -720,7 +720,7 @@ Requête 7.a :  Deux regroupements d’attributs dans deux attestations différe
 }
 ```
 
-Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différentes
+#### Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différentes
 
 ```json
 {
@@ -774,7 +774,7 @@ Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différent
 - Les attestations associées à chaque regroupement ont été trouvées dans le portefeuille d’Alice.
 
 
-Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations et un regroupement d’attributs dans une attestation spécifique.
+#### Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations et un regroupement d’attributs dans une attestation spécifique.
 
 ```json
 {
@@ -832,7 +832,7 @@ Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations e
 > :information_source: Un des élément important à repérer concernant le format et la syntaxe des requêtes de présentation précédentes c’est la clé (key)  restrictions . Dans le champ restrictions le Consommateur interroge des attributs du portefeuille d’un détenteur en indiquant explicitement  soit la cred_def_id  ou le schema_name .  Dans  les requêtes suivantes, on va montrer la syntaxe pour interroger des attributs du portefeuille d’un détenteur en indiquant explicitement la valeur spécifique d’un attribut dans le champ restrictions .
 
 
-Requête 9.1 :  Un attribut dans les restrictions
+#### Requête 9.1 :  Un attribut dans les restrictions
 
 ```json
 {
@@ -866,7 +866,7 @@ Requête 9.1 :  Un attribut dans les restrictions
 - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice
 
 
-Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui correspondent à l’attribut cherché)
+#### Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui correspondent à l’attribut cherché)
 
 ```json
 {
@@ -901,7 +901,7 @@ Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui co
 - Deux attestations trouvées (associée au schéma schema_1 et schema_2) dans le portefeuille d’Alice.
 
 
-Requête 10 :  Un cred_def_id et un attribut dans les restrictions
+#### Requête 10 :  Un cred_def_id et un attribut dans les restrictions
 
 ```json
 {
