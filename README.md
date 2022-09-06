@@ -474,7 +474,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+> - Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
 
 
 #### Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestations
@@ -513,9 +513,9 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2;
+> - Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2;
 
-- Pour l’attribut parent_1_full_name, 1 attestation a été trouvée dans le portefeuille d’Alice, schema_1.
+> - Pour l’attribut parent_1_full_name, 1 attestation a été trouvée dans le portefeuille d’Alice, schema_1.
 
 
 #### Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
