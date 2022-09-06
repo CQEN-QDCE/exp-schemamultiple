@@ -643,7 +643,7 @@ async def handle_present_proof_v2_0(self, message):
  ```	
 
 
-## 11.0 Références 
+## 11.0 Références A SUPPRIMER 
 
 [Becoming a Hyperledger Aries Developer - Part 7: Present Proof | Laurence de Jong](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-7-present-proof/)
 
