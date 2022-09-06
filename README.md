@@ -433,14 +433,8 @@ Les résultats de l’exécution de chaque requête de présentation sont affich
   • Utiliser name  pour la récupération des attributs individuels et names pour la récupération de groupes d’attributs;
   
   • Dans le champ restrictions on peut essayer de récupérer des attributs d’un portefeuille en utilisant la valeur d’un attribut. La syntaxe suivante a été testée:
-  
-  ```json 
-  "restrictions": [            
-            {
-              "attr::nom_attribut::value":"Valeur de l'attribut"
-            }
-          ]	  
- ```	  
+
+
   
  - Le format de la réponse du Détenteur à la requête du Consommateur change légèrement si la requête comprend des attributs individuels ou des regroupements d’attributs. La section 10.0 Détails techniques à considérer montre des extraits de la réponse d’un Détenteur;
  
@@ -468,44 +462,8 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par 
 
 - État de la requête de présentation (côté Acme): presentation-received.
 
-```json 
-  {
-  "requested_attributes": {
-    "0_given_names_uuid": {
-      "name": "given_names",
-      "restrictions": [
-        {
-          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
-        },
-        {
-          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
-        },
-        {
-          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
-        }
-      ]
-    }
-  }
-}
- ```
 
- 
- ```json 
-{
-  "requested_proof": {
-    "revealed_attrs": {
-      "0_given_names_uuid": {
-        "sub_proof_index": 0,
-        "raw": "Alice",
-        "encoded": "27034640024117331033063128044004318218486816931520886405535659934417438781507"
-      }
-    },
-    "self_attested_attrs": {},
-    "unrevealed_attrs": {},
-    "predicates": {}
-  }
-}	  
- ```	
+  
 
 Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
 
@@ -514,133 +472,13 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
 - État de la requête de présentation (côté Acme): presentation-received.
 
 
- ```json 
-{
-  "requested_attributes": {
-    "attr_1": {
-      "names": [
-        "given_names",
-        "family_name",
-        "birthdate_dateint"
-      ],
-      "restrictions": [
-        {
-          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
-        }
-      ]
-    },
-    "attr_2": {
-      "names": [
-        "photo",
-        "full_adress"
-      ],
-      "restrictions": [
-        {
-          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
-        }
-      ]
-    }
-  }
-}	  
- ```	
 
- ```json 
-{
-  "requested_proof": {
-    "revealed_attrs": {},
-    "revealed_attr_groups": {
-      "attr_1": {
-        "sub_proof_index": 1,
-        "values": {
-          "given_names": {
-            "raw": "Alice",
-            "encoded": "27034640024117331033063128044004318218486816931520886405535659934417438781507"
-          },
-          "family_name": {
-            "raw": "Smith",
-            "encoded": "72066417326714592639357157411494099840335319789392267512864384015597754702049"
-          },
-          "birthdate_dateint": {
-            "raw": "19880801",
-            "encoded": "19880801"
-          }
-        }
-      },
-      "attr_2": {
-        "sub_proof_index": 0,
-        "values": {
-          "photo": {
-            "raw": "CodeXYZ",
-            "encoded": "78976342904209055345930199669889437607013257267866167915837498975775753679980"
-          },
-          "full_adress": {
-            "raw": "501 rue 34 Québec",
-            "encoded": "44814093327120579746678040803316506220761275506333990637459898229352725026090"
-          }
-        }
-      }
-    },
-    "self_attested_attrs": {},
-    "unrevealed_attrs": {},
-    "predicates": {}
-  }
-}	  
- ```	
 
 > :blue_book: Pour la réalisation de cette POC des modifications mineurs ont été apportées à l’agent demo Acme afin de visualiser en console les attributs, schémas et credential definitions recuperés du portefeuille d’Alice
 
-À remplacer dans le fichier acme.py (ligne 99) 
-[aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
+À remplacer dans le fichier acme.py (ligne 99) [aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
 
-  ```json 
-  
-async def handle_present_proof_v2_0(self, message):       
-        state = message["state"]
-        pres_ex_id = message["pres_ex_id"]
-        self.log(f"Presentation: state = {state}, pres_ex_id = {pres_ex_id}")
-
-        if state == "presentation-received":
-            log_status("#27 Process the proof provided by X")
-            log_status("#28 Check if proof is valid")
-            proof = await self.admin_POST(
-                f"/present-proof-2.0/records/{pres_ex_id}/verify-presentation"
-            )
-            self.log("Proof = ", proof["verified"])
-
-            
-            # check values received
-            pres_req = message["by_format"]["pres_request"]["indy"]
-            pres = message["by_format"]["pres"]["indy"]
-            is_proof_of_identity = (
-                pres_req["name"] == "Proof of Identity"
-            )
-            if is_proof_of_identity:
-                log_status("#28.1 Received proof of identity, check claims")
-                for (referent, attr_spec) in pres_req["requested_attributes"].items():
-                    if "names" in attr_spec:
-                        for name in attr_spec['names']:
-                            self.log(
-                                f"{name}: "
-                                f"{pres['requested_proof']['revealed_attr_groups'][referent]['values'][name]['raw']}"
-                            )
-                    if "name" in attr_spec:
-                        self.log(
-                            f"{attr_spec['name']}: "
-                            f"{pres['requested_proof']['revealed_attrs'][referent]['raw']}"
-                        )        
-
-                for id_spec in pres["identifiers"]:
-                    # just print out the schema/cred def id's of presented claims
-                    self.log(f"schema_id: {id_spec['schema_id']}")
-                    self.log(f"cred_def_id {id_spec['cred_def_id']}")
-                # TODO placeholder for the next step
-            else:
-                # in case there are any other kinds of proofs received
-                self.log("#28.1 Received ", message["presentation_request"]["name"])
-            pass
-	  
- ```	
-
+	
 
 ## 11.0 Références
 
