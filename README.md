@@ -977,7 +977,7 @@ L’expérimentation a permis de  :
 
 ## 10.0 Détails techniques à considérer
 
-Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par Acme
+#### Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par Acme
 
 - La Requête 1 comprend des attributs individuels;
 
@@ -1023,7 +1023,7 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par 
  ```	
   
 
-Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
+#### Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
 
 - La Requête 7.a comprend des attributs regroupés;
 
