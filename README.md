@@ -590,6 +590,7 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
 > :blue_book: Pour la réalisation de cette POC des modifications mineurs ont été apportées à l’agent demo Acme afin de visualiser en console les attributs, schémas et credential definitions recuperés du portefeuille d’Alice
 
 À remplacer dans le fichier acme.py (ligne 99) 
+[aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
 
   ```json 
   
@@ -641,7 +642,7 @@ async def handle_present_proof_v2_0(self, message):
  ```	
 
 
-## 11.0 Références A SUPPRIMER 
+## 11.0 Références
 
 [Becoming a Hyperledger Aries Developer - Part 7: Present Proof | Laurence de Jong](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-7-present-proof/)
 
