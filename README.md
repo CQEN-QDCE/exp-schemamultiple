@@ -544,7 +544,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Aucune attestation trouvée dans le portefeuille d’Alice.
+> - Aucune attestation trouvée dans le portefeuille d’Alice.
 
 
 #### Requête 4 : Des attributs individuels dans 2 attestations
@@ -591,7 +591,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Deux attestations trouvées dans le portefeuille d’Alice.
+> - Deux attestations trouvées dans le portefeuille d’Alice.
 
 
 
@@ -633,7 +633,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Pour le regroupement d’attributs , deux attestations trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+> - Pour le regroupement d’attributs , deux attestations trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
 
 
 #### Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
@@ -676,7 +676,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Pour le regroupement d’attributs attr_1, une seule attestation trouvée dans le portefeuille d’Alice, schema_1. 
+> - Pour le regroupement d’attributs attr_1, une seule attestation trouvée dans le portefeuille d’Alice, schema_1. 
 
 
 #### Requête 7.a :  Deux regroupements d’attributs dans deux attestations différentes
@@ -771,7 +771,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Les attestations associées à chaque regroupement ont été trouvées dans le portefeuille d’Alice.
+> - Les attestations associées à chaque regroupement ont été trouvées dans le portefeuille d’Alice.
 
 
 #### Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations et un regroupement d’attributs dans une attestation spécifique.
@@ -824,9 +824,9 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Deux attestations trouvées pour le regroupement attr_1 , schema_1 et schema_2;
+> - Deux attestations trouvées pour le regroupement attr_1 , schema_1 et schema_2;
 
-- Une attestation trouvées pour le regroupement attr_2, schema_1.
+> - Une attestation trouvées pour le regroupement attr_2, schema_1.
 
 
 > :information_source: Un des élément important à repérer concernant le format et la syntaxe des requêtes de présentation précédentes c’est la clé (key)  restrictions . Dans le champ restrictions le Consommateur interroge des attributs du portefeuille d’un détenteur en indiquant explicitement  soit la cred_def_id  ou le schema_name .  Dans  les requêtes suivantes, on va montrer la syntaxe pour interroger des attributs du portefeuille d’un détenteur en indiquant explicitement la valeur spécifique d’un attribut dans le champ restrictions .
@@ -863,7 +863,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice
+> - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice
 
 
 #### Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui correspondent à l’attribut cherché)
@@ -898,7 +898,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Deux attestations trouvées (associée au schéma schema_1 et schema_2) dans le portefeuille d’Alice.
+> - Deux attestations trouvées (associée au schéma schema_1 et schema_2) dans le portefeuille d’Alice.
 
 
 #### Requête 10 :  Un cred_def_id et un attribut dans les restrictions
@@ -933,7 +933,7 @@ API: POST /present-proof-2.0/send-request
 
 > :white_check_mark: Résultats:
 
-- Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice.
+> - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice.
 
 
 ## 7.0 Résultats attendus
