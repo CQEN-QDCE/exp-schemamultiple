@@ -510,6 +510,266 @@ Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestation
 }
 ```
 
+> :white_check_mark: Résultats:
+
+- Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2;
+
+- Pour l’attribut parent_1_full_name, 1 attestation a été trouvée dans le portefeuille d’Alice, schema_1.
+
+
+Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Aucune attestation trouvée dans le portefeuille d’Alice.
+
+
+Requête 4 : Des attributs individuels dans 2 attestations
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "137388449251487884310892013251656523020",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_birthdate_dateint_uuid": {
+          "name": "birthdate_dateint",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_full_adress_uuid": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Deux attestations trouvées dans le portefeuille d’Alice.
+
+
+
+Requête 5 : Des attributs regroupés dans un ensemble de 3 attestations
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Pour le regroupement d’attributs , deux attestations trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+
+
+Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint",
+			"parent_1_full_name",
+			"parent_2_full_name"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Pour le regroupement d’attributs attr_1, une seule attestation trouvée dans le portefeuille d’Alice, schema_1. 
+
+
+Requête 7.a :  Deux regroupements d’attributs dans deux attestations différentes
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"			
+          ],
+          "restrictions": [           
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "photo",
+            "full_adress"			
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différentes
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"			
+          ],
+          "restrictions": [           
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "photo",
+            "full_adress"			
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            }
+          ]
+        },
+		"attr_3": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+
+
 ## 7.0 Résultats attendus
 
 Les résultats de l’exécution de chaque requête de présentation sont affichés à la fin de chaque requête de  présentation de la section précédente.
