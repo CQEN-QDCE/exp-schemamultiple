@@ -471,6 +471,44 @@ Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le no
 }
 ```
 
+> :white_check_mark: Résultats:
+
+- Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+
+
+Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestations
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        },
+       "0_parent_1_name_uuid": {
+          "name": "parent_1_full_name",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
 
 ## 7.0 Résultats attendus
 
