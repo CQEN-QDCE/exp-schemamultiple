@@ -522,7 +522,52 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
 
 À remplacer dans le fichier acme.py (ligne 99) [aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
 
-	
+```json 
+async def handle_present_proof_v2_0(self, message):       
+        state = message["state"]
+        pres_ex_id = message["pres_ex_id"]
+        self.log(f"Presentation: state = {state}, pres_ex_id = {pres_ex_id}")
+
+        if state == "presentation-received":
+            log_status("#27 Process the proof provided by X")
+            log_status("#28 Check if proof is valid")
+            proof = await self.admin_POST(
+                f"/present-proof-2.0/records/{pres_ex_id}/verify-presentation"
+            )
+            self.log("Proof = ", proof["verified"])
+
+            
+            # check values received
+            pres_req = message["by_format"]["pres_request"]["indy"]
+            pres = message["by_format"]["pres"]["indy"]
+            is_proof_of_identity = (
+                pres_req["name"] == "Proof of Identity"
+            )
+            if is_proof_of_identity:
+                log_status("#28.1 Received proof of identity, check claims")
+                for (referent, attr_spec) in pres_req["requested_attributes"].items():
+                    if "names" in attr_spec:
+                        for name in attr_spec['names']:
+                            self.log(
+                                f"{name}: "
+                                f"{pres['requested_proof']['revealed_attr_groups'][referent]['values'][name]['raw']}"
+                            )
+                    if "name" in attr_spec:
+                        self.log(
+                            f"{attr_spec['name']}: "
+                            f"{pres['requested_proof']['revealed_attrs'][referent]['raw']}"
+                        )        
+
+                for id_spec in pres["identifiers"]:
+                    # just print out the schema/cred def id's of presented claims
+                    self.log(f"schema_id: {id_spec['schema_id']}")
+                    self.log(f"cred_def_id {id_spec['cred_def_id']}")
+                # TODO placeholder for the next step
+            else:
+                # in case there are any other kinds of proofs received
+                self.log("#28.1 Received ", message["presentation_request"]["name"])
+            pass	
+```
 
 ## 11.0 Références
 
