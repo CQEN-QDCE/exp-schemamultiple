@@ -514,8 +514,35 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
 
 - État de la requête de présentation (côté Acme): presentation-received.
 
-
-  
+```json 
+{
+  "requested_attributes": {
+    "attr_1": {
+      "names": [
+        "given_names",
+        "family_name",
+        "birthdate_dateint"
+      ],
+      "restrictions": [
+        {
+          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+        }
+      ]
+    },
+    "attr_2": {
+      "names": [
+        "photo",
+        "full_adress"
+      ],
+      "restrictions": [
+        {
+          "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+        }
+      ]
+    }
+  }
+}
+ ``` 
 
 
 > :blue_book: Pour la réalisation de cette POC des modifications mineurs ont été apportées à l’agent demo Acme afin de visualiser en console les attributs, schémas et credential definitions recuperés du portefeuille d’Alice
