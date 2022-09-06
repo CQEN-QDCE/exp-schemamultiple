@@ -768,6 +768,70 @@ Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différent
 }
 ```
 
+> :white_check_mark: Résultats:
+
+- Les attestations associées à chaque regroupement ont été trouvées dans le portefeuille d’Alice.
+
+
+Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations et un regroupement d’attributs dans une attestation spécifique.
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Deux attestations trouvées pour le regroupement attr_1 , schema_1 et schema_2;
+
+- Une attestation trouvées pour le regroupement attr_2, schema_1.
+
+
+> :information_source: Un des élément important à repérer concernant le format et la syntaxe des requêtes de présentation précédentes c’est la clé (key)  restrictions . Dans le champ restrictions le Consommateur interroge des attributs du portefeuille d’un détenteur en indiquant explicitement  soit la cred_def_id  ou le schema_name .  Dans  les requêtes suivantes, on va montrer la syntaxe pour interroger des attributs du portefeuille d’un détenteur en indiquant explicitement la valeur spécifique d’un attribut dans le champ restrictions .
+
+
+Requête 9.1 :  Un attribut dans les restrictions
 
 
 ## 7.0 Résultats attendus
