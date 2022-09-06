@@ -118,7 +118,7 @@ cd aries-cloudagent-python/demo
 ./run_demo Acme
 ```
 
-> Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
+> :information_source: Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
 
 Par défaut, les agents Faber et Acme ont créé une invitation de connexion (voir le terminal respectif de chaque agent). Vous pouvez utiliser l’interface CLI ou Swagger (API: POST /out-of-band/receive-invitation) d’Alice pour accepter les invitations de Faber et Acme. 
 
@@ -420,6 +420,57 @@ Swagger:
 API: POST /present-proof-2.0/send-request
 ```
 > :information_source: Lorsque vous allez utiliser les requêtes de présentation ici-bas, n’oublie pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
+
+Requête 1.a : Un attribut dans un ensemble de 3 attestations en utilisant l’id du “credential definition”
+
+```json 
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le nom du schéma
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"schema_name": "schema_2"},{"schema_name": "schema_3"},{"schema_name": "schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
 
 ## 7.0 Résultats attendus
 
