@@ -421,7 +421,8 @@ API: POST /present-proof-2.0/send-request
 ```
 > :information_source: Lorsque vous allez utiliser les requêtes de présentation ici-bas, n’oublie pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
 
-Requête 1.a : Un attribut dans un ensemble de 3 attestations en utilisant l’id du “credential definition”
+
+#### Requête 1.a : Un attribut dans un ensemble de 3 attestations en utilisant l’id du “credential definition”
 
 ```json 
 {
@@ -447,7 +448,7 @@ Requête 1.a : Un attribut dans un ensemble de 3 attestations en utilisant l’i
 }
 ```
 
-Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le nom du schéma
+#### Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le nom du schéma
 
 ```json
 {
@@ -476,7 +477,7 @@ Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le no
 - Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
 
 
-Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestations
+#### Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestations
 
 ```json
 {
