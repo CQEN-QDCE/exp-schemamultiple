@@ -423,6 +423,8 @@ API: POST /present-proof-2.0/send-request
 
 ## 7.0 Résultats attendus
 
+Les résultats de l’exécution de chaque requête de présentation sont affichés à la fin de chaque requête de  présentation de la section précédente.
+
 ## 8.0 Analyse
 
 ## 9.0 Conclusion
