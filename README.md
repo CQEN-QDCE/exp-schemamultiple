@@ -833,6 +833,107 @@ Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations e
 
 Requête 9.1 :  Un attribut dans les restrictions
 
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "full_adress",
+            "adress_type"
+          ],
+          "restrictions": [            
+            {
+              "attr::adress_type::value":"R"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice
+
+
+Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui correspondent à l’attribut cherché)
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [            
+            {
+              "attr::family_name::value":"Smith"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Deux attestations trouvées (associée au schéma schema_1 et schema_2) dans le portefeuille d’Alice.
+
+
+Requête 10 :  Un cred_def_id et un attribut dans les restrictions
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "full_adress",
+            "adress_type"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2",
+              "attr::adress_type::value":"R"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+- Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice.
+
 
 ## 7.0 Résultats attendus
 
