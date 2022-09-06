@@ -435,13 +435,11 @@ Les résultats de l’exécution de chaque requête de présentation sont affich
   • Dans le champ restrictions on peut essayer de récupérer des attributs d’un portefeuille en utilisant la valeur d’un attribut. La syntaxe suivante a été testée:
   
   ```json 
-  
   "restrictions": [            
             {
               "attr::nom_attribut::value":"Valeur de l'attribut"
             }
-          ]
-	  
+          ]	  
  ```	  
   
  - Le format de la réponse du Détenteur à la requête du Consommateur change légèrement si la requête comprend des attributs individuels ou des regroupements d’attributs. La section 10.0 Détails techniques à considérer montre des extraits de la réponse d’un Détenteur;
