@@ -468,15 +468,6 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par 
 
 - État de la requête de présentation (côté Acme): presentation-received.
 
-
-  
-
-Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
-
-- La Requête 7.a comprend des attributs regroupés;
-
-- État de la requête de présentation (côté Acme): presentation-received.
-
 ```json 
   {
   "requested_attributes": {
@@ -497,6 +488,34 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
   }
 }
  ```
+
+ 
+ ```json 
+{
+  "requested_proof": {
+    "revealed_attrs": {
+      "0_given_names_uuid": {
+        "sub_proof_index": 0,
+        "raw": "Alice",
+        "encoded": "27034640024117331033063128044004318218486816931520886405535659934417438781507"
+      }
+    },
+    "self_attested_attrs": {},
+    "unrevealed_attrs": {},
+    "predicates": {}
+  }
+}	  
+ ```	
+  
+
+Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
+
+- La Requête 7.a comprend des attributs regroupés;
+
+- État de la requête de présentation (côté Acme): presentation-received.
+
+
+ 
 
 
 > :blue_book: Pour la réalisation de cette POC des modifications mineurs ont été apportées à l’agent demo Acme afin de visualiser en console les attributs, schémas et credential definitions recuperés du portefeuille d’Alice
