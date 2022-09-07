@@ -118,7 +118,7 @@ cd aries-cloudagent-python/demo
 ./run_demo Acme
 ```
 
-> Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
+> :information_source: Lorsqu’on lance un agent Demo sans spécifier un fichier Genesis ou l’URL du registre distribué, par défaut il va s’attacher au registre local von-network roulant sur  http://localhost:9000.
 
 Par défaut, les agents Faber et Acme ont créé une invitation de connexion (voir le terminal respectif de chaque agent). Vous pouvez utiliser l’interface CLI ou Swagger (API: POST /out-of-band/receive-invitation) d’Alice pour accepter les invitations de Faber et Acme. 
 
@@ -239,7 +239,7 @@ API:POST /issue-credential-2.0/send
 ```
 > :information_source: Lorsque vous allez utiliser les exemples d’attestions ici-bas, n’oubliez pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
 
-1. Attestation liée au Schéma 1
+#### 1. Attestation liée au Schéma 1
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -287,7 +287,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-2. Attestation liée au Schéma 2
+#### 2. Attestation liée au Schéma 2
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -327,7 +327,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-3. Attestation liée au Schéma 4
+#### 3. Attestation liée au Schéma 4
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -351,7 +351,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-4. Attestation liée au Schéma 5 (1)
+#### 4. Attestation liée au Schéma 5 (1)
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -379,7 +379,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-5. Attestation liée au Schéma 5 (2)
+#### 5. Attestation liée au Schéma 5 (2)
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -421,6 +421,521 @@ API: POST /present-proof-2.0/send-request
 ```
 > :information_source: Lorsque vous allez utiliser les requêtes de présentation ici-bas, n’oublie pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
 
+
+#### Requête 1.a : Un attribut dans un ensemble de 3 attestations en utilisant l’id du “credential definition”
+
+```json 
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+#### Requête 1.b : Un attribut dans un ensemble de 3 attestations en utilisant le nom du schéma
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"schema_name": "schema_2"},{"schema_name": "schema_3"},{"schema_name": "schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+
+
+#### Requête 2 : Plusieurs attributs individuels dans des ensembles de 3 attestations
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        },
+       "0_parent_1_name_uuid": {
+          "name": "parent_1_full_name",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Pour l’attribut given_names, 2 attestations ont été trouvées dans le portefeuille d’Alice, schema_1 et schema_2;
+
+> - Pour l’attribut parent_1_full_name, 1 attestation a été trouvée dans le portefeuille d’Alice, schema_1.
+
+
+#### Requête  3 : Un attribut dans une attestation qu’Alice ne possède pas
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Aucune attestation trouvée dans le portefeuille d’Alice.
+
+
+#### Requête 4 : Des attributs individuels dans 2 attestations
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "137388449251487884310892013251656523020",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_birthdate_dateint_uuid": {
+          "name": "birthdate_dateint",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_full_adress_uuid": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Deux attestations trouvées dans le portefeuille d’Alice.
+
+
+
+#### Requête 5 : Des attributs regroupés dans un ensemble de 3 attestations
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Pour le regroupement d’attributs , deux attestations trouvées dans le portefeuille d’Alice, schema_1 et schema_2.
+
+
+#### Requête 6 : Des attributs regroupés  dans un ensemble de 3 attestations
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint",
+			"parent_1_full_name",
+			"parent_2_full_name"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Pour le regroupement d’attributs attr_1, une seule attestation trouvée dans le portefeuille d’Alice, schema_1. 
+
+
+#### Requête 7.a :  Deux regroupements d’attributs dans deux attestations différentes
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"			
+          ],
+          "restrictions": [           
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "photo",
+            "full_adress"			
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+#### Requête 7.b :  Trois regroupements d’attributs dans 3 attestations différentes
+
+```json
+{
+  "connection_id": "6cffd43d-9474-4783-bc0e-e8c9bfb0cd3f",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"			
+          ],
+          "restrictions": [           
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "photo",
+            "full_adress"			
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            }
+          ]
+        },
+		"attr_3": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Les attestations associées à chaque regroupement ont été trouvées dans le portefeuille d’Alice.
+
+
+#### Requête 8 : Un regroupement d’attributs dans un ensemble des 3 attestations et un regroupement d’attributs dans une attestation spécifique.
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Deux attestations trouvées pour le regroupement attr_1 , schema_1 et schema_2;
+
+> - Une attestation trouvées pour le regroupement attr_2, schema_1.
+
+
+> :information_source: Un des élément important à repérer concernant le format et la syntaxe des requêtes de présentation précédentes c’est la clé (key)  restrictions . Dans le champ restrictions le Consommateur interroge des attributs du portefeuille d’un détenteur en indiquant explicitement  soit la cred_def_id  ou le schema_name .  Dans  les requêtes suivantes, on va montrer la syntaxe pour interroger des attributs du portefeuille d’un détenteur en indiquant explicitement la valeur spécifique d’un attribut dans le champ restrictions .
+
+
+#### Requête 9.1 :  Un attribut dans les restrictions
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "full_adress",
+            "adress_type"
+          ],
+          "restrictions": [            
+            {
+              "attr::adress_type::value":"R"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice
+
+
+#### Requête 9.1 :  Un attribut dans les restrictions (Alice a 2 attestations qui correspondent à l’attribut cherché)
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [            
+            {
+              "attr::family_name::value":"Smith"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Deux attestations trouvées (associée au schéma schema_1 et schema_2) dans le portefeuille d’Alice.
+
+
+#### Requête 10 :  Un cred_def_id et un attribut dans les restrictions
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "full_adress",
+            "adress_type"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2",
+              "attr::adress_type::value":"R"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+> :white_check_mark: Résultats:
+
+> - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille d’Alice.
+
+
 ## 7.0 Résultats attendus
 
 Les résultats de l’exécution de chaque requête de présentation sont affichés à la fin de chaque requête de  présentation de la section précédente.
@@ -433,16 +948,14 @@ Les résultats de l’exécution de chaque requête de présentation sont affich
   • Utiliser name  pour la récupération des attributs individuels et names pour la récupération de groupes d’attributs;
   
   • Dans le champ restrictions on peut essayer de récupérer des attributs d’un portefeuille en utilisant la valeur d’un attribut. La syntaxe suivante a été testée:
-  
-  ```json 
-  
+
+```json 
   "restrictions": [            
             {
               "attr::nom_attribut::value":"Valeur de l'attribut"
             }
-          ]
-	  
- ```	  
+          ]	  
+ ```	
   
  - Le format de la réponse du Détenteur à la requête du Consommateur change légèrement si la requête comprend des attributs individuels ou des regroupements d’attributs. La section 10.0 Détails techniques à considérer montre des extraits de la réponse d’un Détenteur;
  
@@ -464,7 +977,7 @@ L’expérimentation a permis de  :
 
 ## 10.0 Détails techniques à considérer
 
-Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par Acme
+#### Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par Acme
 
 - La Requête 1 comprend des attributs individuels;
 
@@ -508,15 +1021,15 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 1 fait par 
   }
 }	  
  ```	
+  
 
-Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
+#### Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait par Acme
 
 - La Requête 7.a comprend des attributs regroupés;
 
 - État de la requête de présentation (côté Acme): presentation-received.
 
-
- ```json 
+```json 
 {
   "requested_attributes": {
     "attr_1": {
@@ -543,10 +1056,10 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
       ]
     }
   }
-}	  
- ```	
+}
+ ``` 
 
- ```json 
+```json 
 {
   "requested_proof": {
     "revealed_attrs": {},
@@ -586,15 +1099,14 @@ Extraits de la réponse (message) provenant d’Alice à la Requête 7.a fait pa
     "unrevealed_attrs": {},
     "predicates": {}
   }
-}	  
- ```	
+}
+ ``` 
 
 > :blue_book: Pour la réalisation de cette POC des modifications mineurs ont été apportées à l’agent demo Acme afin de visualiser en console les attributs, schémas et credential definitions recuperés du portefeuille d’Alice
 
-À remplacer dans le fichier acme.py (ligne 99) [aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :]([https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-7-present-proof/](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
+#### À remplacer dans le fichier acme.py (ligne 99) [aries-cloudagent-python/acme.py at main · hyperledger/aries-cloudagent-python :](https://github.com/hyperledger/aries-cloudagent-python/blob/main/demo/runners/acme.py)
 
-  ```json 
-  
+```json 
 async def handle_present_proof_v2_0(self, message):       
         state = message["state"]
         pres_ex_id = message["pres_ex_id"]
@@ -638,12 +1150,10 @@ async def handle_present_proof_v2_0(self, message):
             else:
                 # in case there are any other kinds of proofs received
                 self.log("#28.1 Received ", message["presentation_request"]["name"])
-            pass
-	  
- ```	
+            pass	
+```
 
-
-## 11.0 Références 
+## 11.0 Références
 
 [Becoming a Hyperledger Aries Developer - Part 7: Present Proof | Laurence de Jong](https://ldej.nl/post/becoming-a-hyperledger-aries-developer-part-7-present-proof/)
 
