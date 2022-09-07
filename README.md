@@ -239,7 +239,7 @@ API:POST /issue-credential-2.0/send
 ```
 > :information_source: Lorsque vous allez utiliser les exemples d’attestions ici-bas, n’oubliez pas de mettre à jour les variables `connection_id` et `cred_def_id` avec celles propres à votre environnement de test.
 
-1. Attestation liée au Schéma 1
+#### 1. Attestation liée au Schéma 1
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -287,7 +287,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-2. Attestation liée au Schéma 2
+#### 2. Attestation liée au Schéma 2
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -327,7 +327,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-3. Attestation liée au Schéma 4
+#### 3. Attestation liée au Schéma 4
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -351,7 +351,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-4. Attestation liée au Schéma 5 (1)
+#### 4. Attestation liée au Schéma 5 (1)
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
@@ -379,7 +379,7 @@ API:POST /issue-credential-2.0/send
 }
 ```
 
-5. Attestation liée au Schéma 5 (2)
+#### 5. Attestation liée au Schéma 5 (2)
 ```json 
 {
    "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
