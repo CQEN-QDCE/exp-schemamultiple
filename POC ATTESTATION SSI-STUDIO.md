@@ -19,7 +19,7 @@
 
 ## 1.0 Tester la requête 4 sans attestation dans le portefeuille
 
-Se connecter au portefeuille avec NIP de 6 caractères
+#### Se connecter au portefeuille avec NIP de 6 caractères
 
  ![image](https://user-images.githubusercontent.com/120060804/206300257-418e8440-4fb0-4e50-b943-4b46c5beed67.png)
  
@@ -27,33 +27,33 @@ Se connecter au portefeuille avec NIP de 6 caractères
  
  ![image](https://user-images.githubusercontent.com/120060804/206300524-0efac93d-6d55-4417-8ebe-ca011e4e8b40.png)
 
-Une fois connecté, l’utilisateur peut utiliser ‘Lire un code QR’ soit pour recevoir une attestation, soit pour vérifier une attestation
+#### Une fois connecté, l’utilisateur peut utiliser ‘Lire un code QR’ soit pour recevoir une attestation, soit pour vérifier une attestation
 
 ![image](https://user-images.githubusercontent.com/120060804/206300586-09a4e9fd-e722-4f43-80d4-fe9e0d47a423.png)
 
-Se connecter sur SSI-STUDIO pour paramétrer les agents, les schémas, les attestations et les requêtes de présentations
+#### Se connecter sur SSI-STUDIO pour paramétrer les agents, les schémas, les attestations et les requêtes de présentations
 
  ![image](https://user-images.githubusercontent.com/120060804/206300666-1d29658c-3f45-4ed0-a119-ecd0cff3105b.png)
  
  ![image](https://user-images.githubusercontent.com/120060804/206300715-7afe859c-6334-4f36-95e5-0b51af7884d3.png)
 
-Paramétrages des agents
+#### Paramétrages des agents
 
  ![image](https://user-images.githubusercontent.com/120060804/206300759-5a6b167d-b8ab-477c-91d9-0f264f156fcd.png)
 
-Paramétrages des schémas et émissions des attestions via le bouton « Offre »
+#### Paramétrages des schémas et émissions des attestions via le bouton « Offre »
 
  ![image](https://user-images.githubusercontent.com/120060804/206300803-65936a3d-8d1f-421e-bcd7-6a591c758c01.png)
 
-Paramétrages des requêtes de présentation 
+#### Paramétrages des requêtes de présentation 
 
  ![image](https://user-images.githubusercontent.com/120060804/206300881-e4aa2693-dbfc-4b05-9230-cf41ab456e52.png)
 
-Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
+#### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
 
  ![image](https://user-images.githubusercontent.com/120060804/206301824-1ce94189-4b61-4bd7-88e5-6f104ba6cd30.png)
 
-L’attestation du schéma 1 non disponible du portefeuille
+#### L’attestation du schéma 1 non disponible du portefeuille
 
  ![image](https://user-images.githubusercontent.com/120060804/206301869-f4d61102-fb13-4cf8-9602-dc942da4773f.png)
 
@@ -63,7 +63,7 @@ L’attestation du schéma 1 non disponible du portefeuille
 
 ## 2.0 Émettre une attestation schéma 1 et tester la requête 4
 
-Émission de l’attestation du schéma 1
+#### Émission de l’attestation du schéma 1
 
  ![image](https://user-images.githubusercontent.com/120060804/206302384-125400be-b502-4fa7-8e2f-f50cfb0dc94f.png)
 
@@ -79,7 +79,7 @@ L’attestation du schéma 1 non disponible du portefeuille
 
  ![image](https://user-images.githubusercontent.com/120060804/206302586-8d2d6bec-4e38-4a5f-a9f2-4b78617edf52.png)
 
-Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
+#### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
 Il faut noter que l’attribut « Full Adress » n’est pas défini et par conséquent non disponible au niveau du portefeuille numérique
 
 ![image](https://user-images.githubusercontent.com/120060804/206302887-aa510fb6-fae5-4c07-8f7d-19fc63fa4271.png)
@@ -90,7 +90,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  
 ## 3.0 Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
 
-Émission de l’attestation du schéma 1
+#### Émission de l’attestation du schéma 1
 
  ![image](https://user-images.githubusercontent.com/120060804/206303108-33951956-356a-4864-b00e-724c5c79b02d.png)
 
@@ -108,7 +108,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  
  ![image](https://user-images.githubusercontent.com/120060804/206303363-50f7caad-c7f2-4859-9269-fa6971a8b17f.png)
  
-Émission de l’attestation du schéma d’adresse
+#### Émission de l’attestation du schéma d’adresse
 
  ![image](https://user-images.githubusercontent.com/120060804/206303508-9d7d0515-f5f7-42bb-9210-71c5f97e79fa.png)
 
@@ -124,7 +124,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  
  ![image](https://user-images.githubusercontent.com/120060804/206303658-acab08d8-c33d-414c-ada5-6e9c6358517c.png)
 
-Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau du portefeuille  
+#### Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau du portefeuille  
 
  ![image](https://user-images.githubusercontent.com/120060804/206303717-d7791fc3-f181-4ebc-981b-b724c343664e.png)
 
@@ -148,42 +148,49 @@ Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau d
 
  ![image](https://user-images.githubusercontent.com/120060804/206304207-df702a24-2e36-4743-ae03-6053ea009f98.png)
  
-Vérifier le schéma 1 à travers la requête 8
+#### Vérifier le schéma 1 à travers la requête 8
+
+![image](https://user-images.githubusercontent.com/120060804/206469828-e32d055a-26cf-4152-93b5-7ae44936fe9c.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206469924-f24ad411-5a79-4609-bfe9-8ea8e7f0d0cb.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206469990-3d9369f0-eec8-438f-8fd7-e044d7416518.png)
 
 
 
 ## 5.0 Émettre une attestation schéma 2 et tester la requête 8
 
-Émission de l’attestation du schéma 2
+#### Émission de l’attestation du schéma 2
 
 
  
-Vérifier le schéma 2 à travers la requête 8
+#### Vérifier le schéma 2 à travers la requête 8
 
 
 
-Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au niveau du portefeuille car l’attestation du schéma 1 n’a pas été reçu.
+#### Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au niveau du portefeuille car l’attestation du schéma 1 n’a pas été reçu.
 
 
 
 ## 6.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
  
-Émission d’attestation de schéma
+#### Émission d’attestation de schéma
 
  
  
-Émission de l’attestation du schéma 1
+#### Émission de l’attestation du schéma 1
 
  
  
-Vérifier le schéma 1 et schéma 2 à travers la requête 8
+#### Vérifier le schéma 1 et schéma 2 à travers la requête 8
 
 
 
 ## 7.0 Émettre 2 attestations schema adress et tester la requête 10
-Émission des 2 attestations du schémas d’adress
+
+#### Émission des 2 attestations du schémas d’adress
 
 
  
-Vérifier le schéma adress à travers la requête 10
+#### Vérifier le schéma adress à travers la requête 10
 
