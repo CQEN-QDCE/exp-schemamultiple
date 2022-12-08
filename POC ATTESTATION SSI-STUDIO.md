@@ -261,19 +261,132 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206548171-b2486189-258a-40a9-9221-b9343e11484d.png)
 
-![image](https://user-images.githubusercontent.com/120060804/206548430-9f98a751-fa06-4c8a-b7d0-beb9684952f6.png)
+![image](https://user-images.githubusercontent.com/120060804/206573640-a191edec-a9cc-4c4c-8142-709330c154cd.png)
 
+![image](https://user-images.githubusercontent.com/120060804/206573705-32059723-d097-451a-a2c2-8be8db9063f1.png)
 
- 
+![image](https://user-images.githubusercontent.com/120060804/206573849-e2bf1379-1c12-4a3e-9a1d-84fb8c727bfe.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206573893-d16d614f-b732-4228-a67e-6d259cb0680b.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206573931-5389735e-bc58-4045-83f1-ffc6eafeae28.png)
+
 #### Vérifier le schéma 1 et schéma 2 à travers la requête 8
 
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
 
+```
+![image](https://user-images.githubusercontent.com/120060804/206574212-f106c038-a516-470f-a8c4-537c6d303d3c.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574251-73cee692-9fb8-4790-a892-879f6b6a7ded.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574300-fce82425-a67f-4baf-b43c-b3e0cf416601.png)
 
 ## 7.0 Émettre 2 attestations schema adress et tester la requête 10
 
 #### Émission des 2 attestations du schémas d’adress
 
+![image](https://user-images.githubusercontent.com/120060804/206574453-55b948d0-dbdb-4d0d-a9af-39dc29a47241.png)
 
+![image](https://user-images.githubusercontent.com/120060804/206574483-11c1d7a9-0cbc-4607-a631-62ba0b19669f.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574508-1729962a-cfe4-4bc7-b6c8-096ce3398b98.png)
+ 
+![image](https://user-images.githubusercontent.com/120060804/206574552-17afa454-09b9-46a8-bcbf-69af7e04a176.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574591-a97f4cd5-e4f7-4975-af59-f278319f9368.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574639-d711e74c-d541-4858-9c07-76d7c65613fe.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574679-dd6fbc06-9dda-4429-9cfa-afd254d67a48.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574706-3349f730-6666-46a7-b58c-71a076a73c54.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574731-21c054a3-a6a9-4224-9ae8-ac3a834fee31.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574759-fa1f2774-f7cb-4783-af71-144856e5a1f8.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574793-077b7eec-84b4-4a0b-83e8-d35c7941f45b.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206574833-3779a424-20ba-49c0-a4aa-5bfae6657cc6.png)
  
 #### Vérifier le schéma adress à travers la requête 10
+
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "full_adress",
+            "adress_type"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2",
+              "attr::adress_type::value":"R"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+
+```
+
+![image](https://user-images.githubusercontent.com/120060804/206575354-268859cb-06f6-4d75-9ee1-f5af3fde18fe.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206575392-d36ef43e-e07f-45e6-839d-1883213ccd7b.png)
+
+
 
