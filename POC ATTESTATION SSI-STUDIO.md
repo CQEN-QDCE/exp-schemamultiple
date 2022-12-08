@@ -1,4 +1,4 @@
-Tester la requête 4 sans attestation dans le portefeuille 
+## Tester la requête 4 sans attestation dans le portefeuille 
 
 Se connecter au portefeuille avec NIP de 6 caractères
 
@@ -42,7 +42,7 @@ L’attestation du schéma 1 non disponible du portefeuille
  
  ![image](https://user-images.githubusercontent.com/120060804/206301991-16eec79d-5f3e-412a-99ee-43b54530bcc5.png)
 
-Émettre une attestation schéma 1 et tester la requête 4
+## Émettre une attestation schéma 1 et tester la requête 4
 
 Émission de l’attestation du schéma 1
 
@@ -69,7 +69,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206302949-f099cf25-d929-48a7-ae02-b8db2a62104d.png)
  
-Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
+## Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
 
 Émission de l’attestation du schéma 1
 
@@ -113,7 +113,7 @@ Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau d
 
  ![image](https://user-images.githubusercontent.com/120060804/206303779-d62d44fe-9281-4b9a-a17f-826acd57d054.png)
 
-Émettre une attestation schéma 1 et tester la requête 8
+## Émettre une attestation schéma 1 et tester la requête 8
 
  ![image](https://user-images.githubusercontent.com/120060804/206304011-6733ccd3-2c5e-4951-9803-609ed88c9789.png)
 
@@ -133,7 +133,7 @@ Vérifier le schéma 1 à travers la requête 8
 
 
 
-Émettre une attestation schéma 2 et tester la requête 8
+## Émettre une attestation schéma 2 et tester la requête 8
 
 Émission de l’attestation du schéma 2
 
@@ -147,7 +147,7 @@ Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au ni
 
 
 
-Émettre une attestation schéma 2 et schéma 1 et tester la requête 8 (on veut savoir si le portefeuille donne le choix à l'utilisateur de sélectionner l'attestation qu'il veut)
+## Émettre une attestation schéma 2 et schéma 1 et tester la requête 8 (on veut savoir si le portefeuille donne le choix à l'utilisateur de sélectionner l'attestation qu'il veut)
  
 Émission d’attestation de schéma
 
@@ -161,7 +161,7 @@ Vérifier le schéma 1 et schéma 2 à travers la requête 8
 
 
 
-Émettre 2 attestations schema_adress (1 type d'adresse R et 1 type d'adresse C), tester la requête 10
+## Émettre 2 attestations schema_adress (1 type d'adresse R et 1 type d'adresse C), tester la requête 10
 Émission des 2 attestations du schémas d’adress
 
 
