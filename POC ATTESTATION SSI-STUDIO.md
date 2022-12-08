@@ -1,4 +1,23 @@
-## Tester la requête 4 sans attestation dans le portefeuille 
+# POC - Requête de présentation - tester dans le portefeuille numérique gouvernementale
+
+## Table des matières
+
+1. [Tester la requête 4 sans attestation dans le portefeuille](#10-tester-la-requête-4-sans-attestation-dans-le-portefeuille)
+
+2. [Émettre une attestation schéma 1 et tester la requête 4](#20-émettre-une-attestation-schéma-1-et-tester-la-requête-4)
+
+3. [Émettre une attestation schéma 1 et l\'attestation schéma adresse et tester la requête 8](#30-émettre-une-attestation-schéma-1-et-lattestation-schéma-adresse-et-tester-la-requête-8)
+
+4. [Émettre une attestation schéma 1 et tester la requête 8](#40-émettre-une-attestation-schéma-1-et-tester-la-requête-8)
+
+5. [Émettre une attestation schéma 2 et tester la requête 8](#50-émettre-une-attestation-schéma-2-et-tester-la-requête-8)
+
+6. [Émettre une attestation schéma 2 et schéma 1 et tester la requête 8](#60-émettre-une-attestation-schéma-2-et-schéma-1-et-tester-la-requête-8)
+
+7. [Émettre 2 attestations schema adress et tester la requête 10](#70-émettre-2-attestations-schema-adress-et-tester-la-requête-10)
+
+
+## 1.0 Tester la requête 4 sans attestation dans le portefeuille
 
 Se connecter au portefeuille avec NIP de 6 caractères
 
@@ -42,7 +61,7 @@ L’attestation du schéma 1 non disponible du portefeuille
  
  ![image](https://user-images.githubusercontent.com/120060804/206301991-16eec79d-5f3e-412a-99ee-43b54530bcc5.png)
 
-## Émettre une attestation schéma 1 et tester la requête 4
+## 2.0 Émettre une attestation schéma 1 et tester la requête 4
 
 Émission de l’attestation du schéma 1
 
@@ -69,7 +88,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206302949-f099cf25-d929-48a7-ae02-b8db2a62104d.png)
  
-## Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
+## 3.0 Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
 
 Émission de l’attestation du schéma 1
 
@@ -113,7 +132,7 @@ Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau d
 
  ![image](https://user-images.githubusercontent.com/120060804/206303779-d62d44fe-9281-4b9a-a17f-826acd57d054.png)
 
-## Émettre une attestation schéma 1 et tester la requête 8
+## 4.0 Émettre une attestation schéma 1 et tester la requête 8
 
  ![image](https://user-images.githubusercontent.com/120060804/206304011-6733ccd3-2c5e-4951-9803-609ed88c9789.png)
 
@@ -133,7 +152,7 @@ Vérifier le schéma 1 à travers la requête 8
 
 
 
-## Émettre une attestation schéma 2 et tester la requête 8
+## 5.0 Émettre une attestation schéma 2 et tester la requête 8
 
 Émission de l’attestation du schéma 2
 
@@ -147,7 +166,7 @@ Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au ni
 
 
 
-## Émettre une attestation schéma 2 et schéma 1 et tester la requête 8 (on veut savoir si le portefeuille donne le choix à l'utilisateur de sélectionner l'attestation qu'il veut)
+## 6.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
  
 Émission d’attestation de schéma
 
@@ -161,7 +180,7 @@ Vérifier le schéma 1 et schéma 2 à travers la requête 8
 
 
 
-## Émettre 2 attestations schema_adress (1 type d'adresse R et 1 type d'adresse C), tester la requête 10
+## 7.0 Émettre 2 attestations schema adress et tester la requête 10
 Émission des 2 attestations du schémas d’adress
 
 
