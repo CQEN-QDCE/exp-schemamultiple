@@ -156,31 +156,114 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206469990-3d9369f0-eec8-438f-8fd7-e044d7416518.png)
 
-
-
 ## 5.0 Émettre une attestation schéma 2 et tester la requête 8
 
 #### Émission de l’attestation du schéma 2
 
+![image](https://user-images.githubusercontent.com/120060804/206541712-c06d4e4f-7467-427c-b0d6-76856dbeeda6.png)
 
+![image](https://user-images.githubusercontent.com/120060804/206541740-e5d21d31-37f7-4861-b656-7babc77be699.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541769-3282787f-2ce2-491a-8e87-e214b8cd447c.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541787-28392db2-b77e-4bac-a38a-15f37649fd3c.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541863-ee376237-bc10-4fde-9cd8-cc09bfa73fac.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541904-598500e3-3fe8-42bb-960a-4bb4b8757850.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541932-0b6af2a3-6609-4ba5-b470-5befacfdc1d9.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206541958-080a91e6-2dad-4017-8b08-47e45f7ef1a7.png)
  
 #### Vérifier le schéma 2 à travers la requête 8
 
+```json
 
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+![image](https://user-images.githubusercontent.com/120060804/206542639-ab4fd215-db90-4761-8161-720b0f4103be.png)
 
 #### Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au niveau du portefeuille car l’attestation du schéma 1 n’a pas été reçu.
 
+![image](https://user-images.githubusercontent.com/120060804/206542691-81735aed-7486-4ccb-9ed7-6f730e4e21ed.png)
 
+![image](https://user-images.githubusercontent.com/120060804/206543173-b4dee240-ca92-49e8-8d79-2eed4dde1f49.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206543223-9c47f6f6-ae4b-4657-9d95-6dce120490da.png)
 
 ## 6.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
  
 #### Émission d’attestation de schéma
 
+ ![image](https://user-images.githubusercontent.com/120060804/206543301-4563b2de-4f12-4d55-b0ba-b284473a9d98.png)
  
+ ![image](https://user-images.githubusercontent.com/120060804/206543332-bd8ca042-a7e5-4441-955b-5f83f5396f2d.png)
+ 
+ ![image](https://user-images.githubusercontent.com/120060804/206543383-ab839565-e056-422d-9163-67f1dc7f8bbc.png)
+ 
+ ![image](https://user-images.githubusercontent.com/120060804/206543419-2b5b94a1-035c-4823-aacc-4e375b8334df.png)
+ 
+ ![image](https://user-images.githubusercontent.com/120060804/206543445-5d915794-1aa3-4ea7-aec1-8ebb4f120c89.png)
+ 
+ ![image](https://user-images.githubusercontent.com/120060804/206543469-28263319-3590-498b-97ff-caf5a5f991fb.png)
+ 
+ ![image](https://user-images.githubusercontent.com/120060804/206543499-a4022024-5e9d-4d7f-9dc7-7490bc1966dc.png)
  
 #### Émission de l’attestation du schéma 1
 
- 
+![image](https://user-images.githubusercontent.com/120060804/206543750-ce8a8a11-6c58-4ce0-a68e-299b35b2bf9f.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206543781-72c50191-bd74-47e5-a518-f6bea86838a6.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206548171-b2486189-258a-40a9-9221-b9343e11484d.png)
+
+![image](https://user-images.githubusercontent.com/120060804/206548430-9f98a751-fa06-4c8a-b7d0-beb9684952f6.png)
+
+
  
 #### Vérifier le schéma 1 et schéma 2 à travers la requête 8
 
