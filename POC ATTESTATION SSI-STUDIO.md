@@ -39,7 +39,7 @@
 
 ## 3.0 Tester la requête 4 sans attestation dans le portefeuille
 
-#### Se connecter au portefeuille avec NIP de 6 caractères
+ Se connecter au portefeuille avec NIP de 6 caractères
 
  ![image](https://user-images.githubusercontent.com/120060804/206300257-418e8440-4fb0-4e50-b943-4b46c5beed67.png)
  
@@ -47,11 +47,11 @@
  
  ![image](https://user-images.githubusercontent.com/120060804/206300524-0efac93d-6d55-4417-8ebe-ca011e4e8b40.png)
 
-#### Une fois connecté, l’utilisateur peut utiliser ‘Lire un code QR’ soit pour recevoir une attestation, soit pour vérifier une attestation
+ Une fois connecté, l’utilisateur peut utiliser ‘Lire un code QR’ soit pour recevoir une attestation, soit pour vérifier une attestation
 
 ![image](https://user-images.githubusercontent.com/120060804/206300586-09a4e9fd-e722-4f43-80d4-fe9e0d47a423.png)
 
-#### Se connecter sur SSI-STUDIO pour paramétrer les agents, les schémas, les attestations et les requêtes de présentations
+ Se connecter sur SSI-STUDIO pour paramétrer les agents, les schémas, les attestations et les requêtes de présentations
 
  ![image](https://user-images.githubusercontent.com/120060804/206300666-1d29658c-3f45-4ed0-a119-ecd0cff3105b.png)
  
@@ -67,6 +67,22 @@
 
 #### Paramétrages des schémas et émissions des attestions via le bouton « Offre »
 
+```json
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint",
+    "parent_1_full_name",
+    "parent_2_full_name",
+    "photo",
+    "issuing_jurisdiction"
+  ],
+  "schema_name": "schema_1",
+  "schema_version": "1.0"
+}
+```
+
  ![102](https://user-images.githubusercontent.com/120060804/206743119-3d0b129b-7045-4004-9951-213542d42ff4.PNG)
 
  ![103](https://user-images.githubusercontent.com/120060804/206743346-39bd3aa0-6c9d-4adc-bc97-7f609a0de9e0.PNG)
@@ -74,6 +90,38 @@
  ![image](https://user-images.githubusercontent.com/120060804/206300803-65936a3d-8d1f-421e-bcd7-6a591c758c01.png)
 
 #### Paramétrages des requêtes de présentation 
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"},
+            {"cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"}
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
+ ![104](https://user-images.githubusercontent.com/120060804/206744823-5c6928cf-44e9-4592-8db3-f962d629be4c.PNG)
+
+ ![105](https://user-images.githubusercontent.com/120060804/206744868-75e36d1c-be7b-4245-94e9-bab1e176f93b.PNG)
+
+ ![106](https://user-images.githubusercontent.com/120060804/206744896-576a3486-3ebc-49f7-85f6-4f9a03648cbd.PNG)
+
+ ![107](https://user-images.githubusercontent.com/120060804/206744943-796ec93c-2cf2-43d7-aed3-bdb716a0ce81.PNG)
 
  ![image](https://user-images.githubusercontent.com/120060804/206300881-e4aa2693-dbfc-4b05-9230-cf41ab456e52.png)
 
@@ -122,10 +170,12 @@
 
  ![image](https://user-images.githubusercontent.com/120060804/206301824-1ce94189-4b61-4bd7-88e5-6f104ba6cd30.png)
 
-#### L’attestation du schéma 1 non disponible du portefeuille
-
  ![image](https://user-images.githubusercontent.com/120060804/206301869-f4d61102-fb13-4cf8-9602-dc942da4773f.png)
+ 
+ > :white_check_mark: Résultats:
 
+ > - L'attestation de schéma 1 n'a pas été trouvée dans le portefeuille numérique.
+ 
  ![image](https://user-images.githubusercontent.com/120060804/206301924-aaec1aca-1a27-425c-87f4-d857c8ddc365.png)
  
  ![image](https://user-images.githubusercontent.com/120060804/206301991-16eec79d-5f3e-412a-99ee-43b54530bcc5.png)
@@ -133,6 +183,53 @@
 ## 4.0 Émettre une attestation schéma 1 et tester la requête 4
 
 #### Émission de l’attestation du schéma 1
+
+```json
+ {
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },
+         {
+            "name":"parent_1_full_name",
+            "value":"Jhon"
+         },
+         {
+            "name":"parent_2_full_name",
+            "value":"Alexandra"
+         },
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"issuing_jurisdiction",
+            "value":"1659381214"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+      }
+   },
+   "trace":false
+}
+```
 
  ![image](https://user-images.githubusercontent.com/120060804/206302384-125400be-b502-4fa7-8e2f-f50cfb0dc94f.png)
 
@@ -188,12 +285,13 @@
     }
   }
 }
-
 ```
 
-Il faut noter que l’attribut « Full Adress » n’est pas défini et par conséquent non disponible au niveau du portefeuille numérique
-
 ![image](https://user-images.githubusercontent.com/120060804/206302887-aa510fb6-fae5-4c07-8f7d-19fc63fa4271.png)
+
+> :white_check_mark: Résultats:
+
+> - L'’attribut « Full Adress » n’est pas défini et par conséquent non disponible au niveau du portefeuille numérique.
 
 ![image](https://user-images.githubusercontent.com/120060804/206302911-10669f50-9e54-4545-885a-bb5bd8aa8a57.png)
 
@@ -202,6 +300,53 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 ## 5.0 Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
 
 #### Émission de l’attestation du schéma 1
+
+```json
+ {
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },
+         {
+            "name":"parent_1_full_name",
+            "value":"Jhon"
+         },
+         {
+            "name":"parent_2_full_name",
+            "value":"Alexandra"
+         },
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"issuing_jurisdiction",
+            "value":"1659381214"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+      }
+   },
+   "trace":false
+}
+```
 
  ![image](https://user-images.githubusercontent.com/120060804/206303108-33951956-356a-4864-b00e-724c5c79b02d.png)
 
@@ -221,6 +366,16 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  
 #### Émission de l’attestation du schéma d’adresse
 
+```json
+{
+  "attributes": [
+    "full_adress"
+  ],
+  "schema_name": "schema_adress",
+  "schema_version": "1.0"
+}
+```
+
  ![image](https://user-images.githubusercontent.com/120060804/206303508-9d7d0515-f5f7-42bb-9210-71c5f97e79fa.png)
 
  ![image](https://user-images.githubusercontent.com/120060804/206303533-8e246ca9-d59b-40c0-beca-5149130c8c38.png)
@@ -237,13 +392,110 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 #### Vérifier le schéma 1 et le schéma adress à travers la requête 8 au niveau du portefeuille  
 
+```json
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
+
  ![image](https://user-images.githubusercontent.com/120060804/206303717-d7791fc3-f181-4ebc-981b-b724c343664e.png)
+ 
+ > :white_check_mark: Résultats:
+
+ > - Une attestation trouvée pour le regroupement attr_1 et attr_2 du schéma 1.
 
  ![image](https://user-images.githubusercontent.com/120060804/206303751-6a444773-93a6-4087-a840-f5eed2cc74fc.png)
 
  ![image](https://user-images.githubusercontent.com/120060804/206303779-d62d44fe-9281-4b9a-a17f-826acd57d054.png)
 
 ## 6.0 Émettre une attestation schéma 1 et tester la requête 8
+
+```json
+ {
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },
+         {
+            "name":"parent_1_full_name",
+            "value":"Jhon"
+         },
+         {
+            "name":"parent_2_full_name",
+            "value":"Alexandra"
+         },
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"issuing_jurisdiction",
+            "value":"1659381214"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+      }
+   },
+   "trace":false
+}
+```
 
  ![image](https://user-images.githubusercontent.com/120060804/206304011-6733ccd3-2c5e-4951-9803-609ed88c9789.png)
 
@@ -262,7 +514,6 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 #### Vérifier le schéma 1 à travers la requête 8
 
 ```json
-
 {
   "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
   "presentation_request": {
@@ -310,6 +561,10 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206469828-e32d055a-26cf-4152-93b5-7ae44936fe9c.png)
 
+> :white_check_mark: Résultats:
+
+> - L'’attribut « Full Adress » n’est pas défini et par conséquent non disponible au niveau du portefeuille numérique.
+
 ![image](https://user-images.githubusercontent.com/120060804/206469924-f24ad411-5a79-4609-bfe9-8ea8e7f0d0cb.png)
 
 ![image](https://user-images.githubusercontent.com/120060804/206469990-3d9369f0-eec8-438f-8fd7-e044d7416518.png)
@@ -317,6 +572,45 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 ## 7.0 Émettre une attestation schéma 2 et tester la requête 8
 
 #### Émission de l’attestation du schéma 2
+
+```json
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },         
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+      }
+   },
+   "trace":false
+}
+```
 
 ![image](https://user-images.githubusercontent.com/120060804/206541712-c06d4e4f-7467-427c-b0d6-76856dbeeda6.png)
 
@@ -337,7 +631,6 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 #### Vérifier le schéma 2 à travers la requête 8
 
 ```json
-
 {
   "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
   "presentation_request": {
@@ -367,7 +660,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 		"attr_2": {
           "names": [
             "parent_1_full_name",
-			"parent_2_full_name",
+	    "parent_2_full_name",
             "photo"
           ],
           "restrictions": [            
@@ -385,9 +678,11 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206542639-ab4fd215-db90-4761-8161-720b0f4103be.png)
 
-#### Les attributs Parent 1 et parent 2 ainsi que Photo ne sont pas disponibles au niveau du portefeuille car l’attestation du schéma 1 n’a pas été reçu.
-
 ![image](https://user-images.githubusercontent.com/120060804/206542691-81735aed-7486-4ccb-9ed7-6f730e4e21ed.png)
+
+> :white_check_mark: Résultats:
+
+> - Les attributs Parent 1 et Parent 2 ainsi que Photo ne sont pas disponibles au niveau du portefeuille car l’attestation du schéma 1 n’a pas été reçue.
 
 ![image](https://user-images.githubusercontent.com/120060804/206543173-b4dee240-ca92-49e8-8d79-2eed4dde1f49.png)
 
@@ -395,7 +690,46 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ## 8.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
  
-#### Émission d’attestation de schéma
+#### Émission d’attestation de schéma 2
+
+```json
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },         
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+      }
+   },
+   "trace":false
+}
+```
 
  ![image](https://user-images.githubusercontent.com/120060804/206543301-4563b2de-4f12-4d55-b0ba-b284473a9d98.png)
  
@@ -412,6 +746,53 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  ![image](https://user-images.githubusercontent.com/120060804/206543499-a4022024-5e9d-4d7f-9dc7-7490bc1966dc.png)
  
 #### Émission de l’attestation du schéma 1
+
+```json
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"given_names",
+            "value":"Alice"
+         },
+         {
+            "name":"family_name",
+            "value":"Smith"
+         },
+         {
+            "name":"birthdate_dateint",
+            "value":"19880801"
+         },
+         {
+            "name":"parent_1_full_name",
+            "value":"Jhon"
+         },
+         {
+            "name":"parent_2_full_name",
+            "value":"Alexandra"
+         },
+		 {
+            "name":"photo",
+            "value":"CodeXYZ"
+         },
+		 {
+            "name":"issuing_jurisdiction",
+            "value":"1659381214"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+      }
+   },
+   "trace":false
+}
+```
 
 ![image](https://user-images.githubusercontent.com/120060804/206543750-ce8a8a11-6c58-4ce0-a68e-299b35b2bf9f.png)
 
@@ -475,9 +856,13 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
     }
   }
 }
-
 ```
+
 ![image](https://user-images.githubusercontent.com/120060804/206574212-f106c038-a516-470f-a8c4-537c6d303d3c.png)
+
+> :white_check_mark: Résultats:
+
+> - Une attestation trouvée pour le regroupement attr_1 et attr_2 du schéma 1.
 
 ![image](https://user-images.githubusercontent.com/120060804/206574251-73cee692-9fb8-4790-a892-879f6b6a7ded.png)
 
@@ -486,6 +871,35 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 ## 9.0 Émettre 2 attestations schema adress et tester la requête 10
 
 #### Émission des 2 attestations du schémas d’adress
+
+### Émission de l'attestation du schémas d’adress de type R
+
+```json
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"full_adress",
+            "value":"1500 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         },
+		 {
+            "name":"adress_type",
+            "value":"R"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2"
+      }
+   },
+   "trace":false
+}
+```
 
 ![image](https://user-images.githubusercontent.com/120060804/206574453-55b948d0-dbdb-4d0d-a9af-39dc29a47241.png)
 
@@ -498,6 +912,35 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 ![image](https://user-images.githubusercontent.com/120060804/206574591-a97f4cd5-e4f7-4975-af59-f278319f9368.png)
 
 ![image](https://user-images.githubusercontent.com/120060804/206574639-d711e74c-d541-4858-9c07-76d7c65613fe.png)
+
+### Émission de l'attestation du schémas d’adress de type C
+
+```json
+{
+   "connection_id":"59ace7d0-8bfc-46c5-8107-9fdb32b6f75a",
+   "comment":"commentaires",
+   "auto_remove":false,
+   "credential_preview":{
+      "@type":"https://didcomm.org/issue-credential/2.0/credential-preview",
+      "attributes":[
+         {
+            "name":"full_adress",
+            "value":"200 Rue Cyrille-Duquet, Québec, QC G1N 2E5"
+         },
+		 {
+            "name":"adress_type",
+            "value":"C"
+         }
+      ]
+   },
+   "filter":{
+      "indy":{
+         "cred_def_id":"E3UVPCktrmwnQWyqY8XSbe:3:CL:182:schema_adress_2"
+      }
+   },
+   "trace":false
+}
+```
 
 ![image](https://user-images.githubusercontent.com/120060804/206574679-dd6fbc06-9dda-4429-9cfa-afd254d67a48.png)
 
@@ -539,10 +982,13 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
     }
   }
 }
-
 ```
 
 ![image](https://user-images.githubusercontent.com/120060804/206575354-268859cb-06f6-4d75-9ee1-f5af3fde18fe.png)
+
+> :white_check_mark: Résultats:
+
+> - Une attestation trouvée (associée au schéma schema_adress_2 ) dans le portefeuille numérique.
 
 ![image](https://user-images.githubusercontent.com/120060804/206575392-d36ef43e-e07f-45e6-839d-1883213ccd7b.png)
 
