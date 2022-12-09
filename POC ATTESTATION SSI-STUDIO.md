@@ -24,6 +24,11 @@
 
 ## 1.0 Objectifs
 
+- Savoir le comportement des requêtes de présentation dans le portefeuille
+	
+- Tester les requêtes de la POC [précédente](https://github.com/CQEN-QDCE/exp-schemamultiple) avec le portefeuille numérique.
+	
+
 ## 2.0 Prérequis
 
 
