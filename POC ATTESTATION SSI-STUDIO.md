@@ -71,6 +71,47 @@
 
 #### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
 
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "137388449251487884310892013251656523020",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_birthdate_dateint_uuid": {
+          "name": "birthdate_dateint",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_full_adress_uuid": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+
+```
+
  ![image](https://user-images.githubusercontent.com/120060804/206301824-1ce94189-4b61-4bd7-88e5-6f104ba6cd30.png)
 
 #### L’attestation du schéma 1 non disponible du portefeuille
@@ -100,6 +141,48 @@
  ![image](https://user-images.githubusercontent.com/120060804/206302586-8d2d6bec-4e38-4a5f-a9f2-4b78617edf52.png)
 
 #### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
+
+```json
+{
+  "connection_id": "3f6e173f-ad71-4e81-a9cf-23d52b89e3e2",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "137388449251487884310892013251656523020",
+      "requested_attributes": {
+        "0_given_names_uuid": {
+          "name": "given_names",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_birthdate_dateint_uuid": {
+          "name": "birthdate_dateint",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+        "0_full_adress_uuid": {
+          "name": "full_adress",
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:22:schema_adress"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+
+```
+
 Il faut noter que l’attribut « Full Adress » n’est pas défini et par conséquent non disponible au niveau du portefeuille numérique
 
 ![image](https://user-images.githubusercontent.com/120060804/206302887-aa510fb6-fae5-4c07-8f7d-19fc63fa4271.png)
@@ -169,6 +252,53 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
  ![image](https://user-images.githubusercontent.com/120060804/206304207-df702a24-2e36-4743-ae03-6053ea009f98.png)
  
 #### Vérifier le schéma 1 à travers la requête 8
+
+```json
+
+{
+  "connection_id": "f9d52241-0d02-47b3-aeae-604d8df53289",
+  "presentation_request": {
+    "indy": {
+      "name": "Proof of Identity",
+      "version": "1.0",
+      "nonce": "93166826414932296800727076347518098347",
+      "requested_attributes": {
+        "attr_1": {
+          "names": [
+            "given_names",
+            "family_name",
+            "birthdate_dateint"
+          ],
+          "restrictions": [
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:18:schema_3"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:17:schema_2"
+            },
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        },
+		"attr_2": {
+          "names": [
+            "parent_1_full_name",
+			"parent_2_full_name",
+            "photo"
+          ],
+          "restrictions": [            
+            {
+              "cred_def_id": "E3UVPCktrmwnQWyqY8XSbe:3:CL:16:schema_1"
+            }
+          ]
+        }
+      },
+      "requested_predicates": {}
+    }
+  }
+}
+```
 
 ![image](https://user-images.githubusercontent.com/120060804/206469828-e32d055a-26cf-4152-93b5-7ae44936fe9c.png)
 
