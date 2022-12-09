@@ -59,9 +59,17 @@
 
 #### Paramétrages des agents
 
+ ![100](https://user-images.githubusercontent.com/120060804/206742828-54f94f39-2e1f-4658-945d-edefdb8caf75.PNG)
+
+ ![101](https://user-images.githubusercontent.com/120060804/206743000-edde8a81-54f8-4160-8927-5b86aa20a1d9.PNG)
+
  ![image](https://user-images.githubusercontent.com/120060804/206300759-5a6b167d-b8ab-477c-91d9-0f264f156fcd.png)
 
 #### Paramétrages des schémas et émissions des attestions via le bouton « Offre »
+
+ ![102](https://user-images.githubusercontent.com/120060804/206743119-3d0b129b-7045-4004-9951-213542d42ff4.PNG)
+
+ ![103](https://user-images.githubusercontent.com/120060804/206743346-39bd3aa0-6c9d-4adc-bc97-7f609a0de9e0.PNG)
 
  ![image](https://user-images.githubusercontent.com/120060804/206300803-65936a3d-8d1f-421e-bcd7-6a591c758c01.png)
 
