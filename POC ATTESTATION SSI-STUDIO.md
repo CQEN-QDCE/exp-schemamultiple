@@ -2,22 +2,32 @@
 
 ## Table des matières
 
-1. [Tester la requête 4 sans attestation dans le portefeuille](#10-tester-la-requête-4-sans-attestation-dans-le-portefeuille)
+1. [Objectifs](#10-objectifs)
 
-2. [Émettre une attestation schéma 1 et tester la requête 4](#20-émettre-une-attestation-schéma-1-et-tester-la-requête-4)
+2. [Prérequis](#20-prérequis)
 
-3. [Émettre une attestation schéma 1 et l\'attestation schéma adresse et tester la requête 8](#30-émettre-une-attestation-schéma-1-et-lattestation-schéma-adresse-et-tester-la-requête-8)
+3. [Tester la requête 4 sans attestation dans le portefeuille](#30-tester-la-requête-4-sans-attestation-dans-le-portefeuille)
 
-4. [Émettre une attestation schéma 1 et tester la requête 8](#40-émettre-une-attestation-schéma-1-et-tester-la-requête-8)
+2. [Émettre une attestation schéma 1 et tester la requête 4](#40-émettre-une-attestation-schéma-1-et-tester-la-requête-4)
 
-5. [Émettre une attestation schéma 2 et tester la requête 8](#50-émettre-une-attestation-schéma-2-et-tester-la-requête-8)
+3. [Émettre une attestation schéma 1 et l\'attestation schéma adresse et tester la requête 8](#50-émettre-une-attestation-schéma-1-et-lattestation-schéma-adresse-et-tester-la-requête-8)
 
-6. [Émettre une attestation schéma 2 et schéma 1 et tester la requête 8](#60-émettre-une-attestation-schéma-2-et-schéma-1-et-tester-la-requête-8)
+4. [Émettre une attestation schéma 1 et tester la requête 8](#60-émettre-une-attestation-schéma-1-et-tester-la-requête-8)
 
-7. [Émettre 2 attestations schema adress et tester la requête 10](#70-émettre-2-attestations-schema-adress-et-tester-la-requête-10)
+5. [Émettre une attestation schéma 2 et tester la requête 8](#70-émettre-une-attestation-schéma-2-et-tester-la-requête-8)
+
+6. [Émettre une attestation schéma 2 et schéma 1 et tester la requête 8](#80-émettre-une-attestation-schéma-2-et-schéma-1-et-tester-la-requête-8)
+
+7. [Émettre 2 attestations schema adress et tester la requête 10](#90-émettre-2-attestations-schema-adress-et-tester-la-requête-10)
 
 
-## 1.0 Tester la requête 4 sans attestation dans le portefeuille
+
+## 1.0 Objectifs
+
+## 2.0 Prérequis
+
+
+## 3.0 Tester la requête 4 sans attestation dans le portefeuille
 
 #### Se connecter au portefeuille avec NIP de 6 caractères
 
@@ -61,7 +71,7 @@
  
  ![image](https://user-images.githubusercontent.com/120060804/206301991-16eec79d-5f3e-412a-99ee-43b54530bcc5.png)
 
-## 2.0 Émettre une attestation schéma 1 et tester la requête 4
+## 4.0 Émettre une attestation schéma 1 et tester la requête 4
 
 #### Émission de l’attestation du schéma 1
 
@@ -88,7 +98,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206302949-f099cf25-d929-48a7-ae02-b8db2a62104d.png)
  
-## 3.0 Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
+## 5.0 Émettre une attestation schéma 1 et l'attestation schéma adresse et tester la requête 8
 
 #### Émission de l’attestation du schéma 1
 
@@ -132,7 +142,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
  ![image](https://user-images.githubusercontent.com/120060804/206303779-d62d44fe-9281-4b9a-a17f-826acd57d054.png)
 
-## 4.0 Émettre une attestation schéma 1 et tester la requête 8
+## 6.0 Émettre une attestation schéma 1 et tester la requête 8
 
  ![image](https://user-images.githubusercontent.com/120060804/206304011-6733ccd3-2c5e-4951-9803-609ed88c9789.png)
 
@@ -156,7 +166,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206469990-3d9369f0-eec8-438f-8fd7-e044d7416518.png)
 
-## 5.0 Émettre une attestation schéma 2 et tester la requête 8
+## 7.0 Émettre une attestation schéma 2 et tester la requête 8
 
 #### Émission de l’attestation du schéma 2
 
@@ -235,7 +245,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206543223-9c47f6f6-ae4b-4657-9d95-6dce120490da.png)
 
-## 6.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
+## 8.0 Émettre une attestation schéma 2 et schéma 1 et tester la requête 8
  
 #### Émission d’attestation de schéma
 
@@ -325,7 +335,7 @@ Il faut noter que l’attribut « Full Adress » n’est pas défini et par cons
 
 ![image](https://user-images.githubusercontent.com/120060804/206574300-fce82425-a67f-4baf-b43c-b3e0cf416601.png)
 
-## 7.0 Émettre 2 attestations schema adress et tester la requête 10
+## 9.0 Émettre 2 attestations schema adress et tester la requête 10
 
 #### Émission des 2 attestations du schémas d’adress
 
