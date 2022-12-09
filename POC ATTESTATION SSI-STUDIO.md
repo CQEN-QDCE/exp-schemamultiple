@@ -26,11 +26,16 @@
 
 - Savoir le comportement des requêtes de présentation dans le portefeuille
 	
-- Tester les requêtes de la POC [précédente](https://github.com/CQEN-QDCE/exp-schemamultiple) avec le portefeuille numérique.
+- Utiliser l'outil SSI_Lab développé par Martin St-Pierre pour tester les requêtes de la POC [précédente](https://github.com/CQEN-QDCE/exp-schemamultiple) avec le portefeuille numérique.
 	
 
 ## 2.0 Prérequis
 
+- Portefeuille numérique version 1.0.3-82
+
+-  [SSI-Studio](https://ssi-studio.apps.exp.openshift.cqen.ca)
+
+-  [Agent emetteur](https://aries-issuer-admin.apps.exp.openshift.cqen.ca)
 
 ## 3.0 Tester la requête 4 sans attestation dans le portefeuille
 
