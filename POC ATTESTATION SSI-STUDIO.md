@@ -26,7 +26,7 @@
 
 - Savoir le comportement des requêtes de présentation dans le portefeuille
 	
-- Utiliser l'outil SSI_Lab développé par Martin St-Pierre pour tester les requêtes de la POC [précédente](https://github.com/CQEN-QDCE/exp-schemamultiple) avec le portefeuille numérique.
+- Utiliser l'outil SSI_Lab pour tester les requêtes de la POC [précédente](https://github.com/CQEN-QDCE/exp-schemamultiple) avec le portefeuille numérique.
 	
 
 ## 2.0 Prérequis
@@ -86,6 +86,64 @@
  ![102](https://user-images.githubusercontent.com/120060804/206743119-3d0b129b-7045-4004-9951-213542d42ff4.PNG)
 
  ![103](https://user-images.githubusercontent.com/120060804/206743346-39bd3aa0-6c9d-4adc-bc97-7f609a0de9e0.PNG)
+ 
+ #### Schéma 2 : 
+ 
+```json 
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint",
+    "photo",
+    "full_adress"
+  ],
+  "schema_name": "schema_2",
+  "schema_version": "1.0"
+}
+```
+![image](https://user-images.githubusercontent.com/120060804/207069984-977b7908-5e23-4499-9847-082c5eda478a.png)
+
+#### Schéma 3 : 
+
+```json 
+{
+  "attributes": [
+    "given_names",
+    "family_name",
+    "birthdate_dateint"
+  ],
+  "schema_name": "schema_3",
+  "schema_version": "1.0"
+}
+```
+![image](https://user-images.githubusercontent.com/120060804/207070181-486a63fc-5e1b-4656-9ae9-e02bdb300106.png)
+
+#### Schéma 4 : 
+
+```json 
+{
+  "attributes": [
+    "full_adress"
+  ],
+  "schema_name": "schema_adress",
+  "schema_version": "1.0"
+}
+```
+![image](https://user-images.githubusercontent.com/120060804/207070354-15162ef9-bbb6-47e3-9d80-cf7fb5b08949.png)
+
+#### Schéma 5 : 
+```json 
+{
+  "attributes": [
+    "full_adress",
+    "adress_type"
+  ],
+  "schema_name": "schema_adress_2",
+  "schema_version": "1.0"
+}
+```
+![image](https://user-images.githubusercontent.com/120060804/207070464-f0093d6a-f71d-4867-8e76-4c33593800b1.png)
 
  ![image](https://user-images.githubusercontent.com/120060804/206300803-65936a3d-8d1f-421e-bcd7-6a591c758c01.png)
 
@@ -124,6 +182,8 @@
  ![107](https://user-images.githubusercontent.com/120060804/206744943-796ec93c-2cf2-43d7-aed3-bdb716a0ce81.PNG)
 
  ![image](https://user-images.githubusercontent.com/120060804/206300881-e4aa2693-dbfc-4b05-9230-cf41ab456e52.png)
+ 
+ ## Tester la requête 4 sans attestation dans le portefeuille
 
 #### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
 
@@ -244,6 +304,8 @@
  ![image](https://user-images.githubusercontent.com/120060804/206302553-e00d8c96-4b8b-4dcb-b170-76daf3bae1f0.png)
 
  ![image](https://user-images.githubusercontent.com/120060804/206302586-8d2d6bec-4e38-4a5f-a9f2-4b78617edf52.png)
+ 
+## Tester la requête 4
 
 #### Vérifier le schéma 1 à travers la requête 4 au niveau du portefeuille  
 
