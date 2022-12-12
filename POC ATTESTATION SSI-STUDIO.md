@@ -44,8 +44,6 @@
  ![image](https://user-images.githubusercontent.com/120060804/206300257-418e8440-4fb0-4e50-b943-4b46c5beed67.png)
  
  ![image](https://user-images.githubusercontent.com/120060804/206300483-a3e8b79e-dd31-424b-b651-509bb2f0ceab.png)
- 
- ![image](https://user-images.githubusercontent.com/120060804/206300524-0efac93d-6d55-4417-8ebe-ca011e4e8b40.png)
 
  Une fois connecté, l’utilisateur peut utiliser ‘Lire un code QR’ soit pour recevoir une attestation, soit pour vérifier une attestation
 
